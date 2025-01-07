@@ -1,0 +1,252 @@
+/* Reset body and html margins and paddings */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure the layout occupies the full viewport without margins */
+.layout {
+  display: grid;
+  grid-template-columns: 60px 8fr 2fr; /* 3 columns: left, center, and right */
+  grid-template-rows: auto 1fr auto 1fr auto; /* 5 rows: top, middle, bottom, middle section for ServerInfo */
+  background-image: url('./components/images/background.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image static during scrolling */
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Covers full viewport height */
+  width: 100vw; /* Covers full viewport width */
+}
+
+.side-menu {
+  grid-column: 1 / 2; /* Leftmost column */
+  grid-row: 1 / 5; /* Spans all rows */
+  padding: 0;
+  position: fixed;
+}
+
+.side-menu::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: +235px; /* Align it to the right edge */
+  width: 2px; /* Line thickness */
+  height: 180%; /* Full height of the container */
+  background-color: white; /* Line color */
+  opacity: 0.3;
+  /* Rotate to get the diagonal line */
+}
+
+.side-menu img {
+  width: 120%; /* Make images larger to shift to the left */
+  height: auto; /* Maintain the aspect ratio of the images */
+  object-fit: cover; /* Ensure the image covers the available space */
+  margin-left: -90%; /* Shift the image to the left */
+}
+
+.breadcrumb {
+  grid-column: 2 / 3; /* Center column */
+  grid-row: 1 / 2; /* Top row */
+  padding: 0;
+  position: fixed;
+  margin-left: 49px;
+  padding-right: 260px;
+  background-color: #15323c;
+  z-index: 10;
+}
+
+.server-info {
+  grid-column: 2 / 3; /* Center column */
+  grid-row: 3 / 4; /* New row for Server Info */
+  padding: 0px;
+  position: relative;
+  margin-top: -250px;
+  margin-left: -10px;
+  z-index: 10;
+}
+
+.server__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.server__buttons button {
+  padding: 8px 16px;
+  width: 100%; /* Makes all buttons the same size */
+  max-width: 120px; /* Sets a max width for all buttons */
+  border: none;
+  border-radius: 0px;
+  /* Smooth transition for hover effect */
+}
+
+.server__buttons button:nth-child(1) {
+  background-color: transparent; /* Transparent background */
+  border: 2px solid white; /* White border */
+  color: white; /* White text color */
+  font-size: 14px; /* Default font size */
+  padding: 10px 20px; /* Adjust padding as needed */
+  transition: all 0.3s ease; /* Smooth transition */
+
+}
+
+.server__buttons button:nth-child(2) {
+  background-color: transparent; /* Transparent background */
+  border: 2px solid white; /* White border */
+  color: white; /* White text color */
+  font-size: 14px; /* Default font size */
+  padding: 10px 20px; /* Adjust padding as needed */
+  transition: all 0.3s ease; /* Smooth transition */
+
+}
+
+.server__buttons button:nth-child(3) {
+  background-color: transparent; /* Transparent background */
+  border: 2px solid white; /* White border */
+  color: white; /* White text color */
+  font-size: 14px; /* Default font size */
+  padding: 10px 20px; /* Adjust padding as needed */
+  transition: all 0.3s ease; /* Smooth transition */
+
+}
+
+/* Hover effects */
+
+.server__buttons button:nth-child(1):hover {
+  background-color: white; /* White background on hover */
+  color: black; /* Black text color on hover */
+   /* Slight increase in font size on hover */
+}
+
+.server__buttons button:nth-child(2):hover {
+  background-color: white; /* White background on hover */
+  color: black; /* Black text color on hover */
+   /* Darker blue on hover */
+}
+
+.server__buttons button:nth-child(3):hover {
+  background-color: white; /* White background on hover */
+  color: black; /* Black text color on hover */
+    /* Darker red on hover */
+}
+
+.right-section {
+  grid-column: 3 / 4; /* Rightmost column */
+  grid-row: 1 / 5; /* Spans all rows */
+  padding: 0px;
+  min-width: 100px; /* Minimum width to ensure visibility */
+  position: fixed;  /* Make it fixed on the screen */
+  top: 30px; /* Align it to the top */
+  right: -13px; /* Align it to the right */
+  height: 100vh; /* Make it take the full viewport height */
+  z-index: 10;
+  transition: transform 0.3s ease; /* Ensure it's on top of other content */
+   /* Optional background color */
+}
+
+.right-section img {
+  max-width: 30px;  /* Set to a percentage of the container's width */
+  height: auto;  /* Maintain the aspect ratio */
+  margin-left: 115px; /* Optionally center the image */
+}
+
+.right-section:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
+  transform: scale(1) translateX(-30%);
+  margin-right: -40px;
+  margin-top: -30px;
+}
+
+.right-section img {
+  position: relative;
+  width: 100%; /* Ensure the image fills the container */
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth transition for size change */
+}
+
+.right-section:hover img {
+  transform: scale(1) translateX(-300%); /* Increase size and move left */
+}
+
+.hover-text1 {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to center */
+  color: #fff; /* White text */
+  font-size: 0.7rem;
+  
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  pointer-events: none; /* Ensures text doesn't block hover effects */
+  margin-top: -331px;
+  margin-left: 10px;
+}
+
+.right-section:hover .hover-text1 {
+  opacity: 1; /* Make text visible on hover */
+}
+.hover-text2 {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to center */
+  color: #fff; /* White text */
+  font-size: 0.7rem;
+  margin-top: -270px;
+  margin-left: 10px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  pointer-events: none; /* Ensures text doesn't block hover effects */
+}
+
+.right-section:hover .hover-text2 {
+  opacity: 1; /* Make text visible on hover */
+}
+
+.hover-text3 {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to center */
+  color: #fff; /* White text */
+  font-size: 0.7rem;
+  margin-top: -200px;
+  margin-left: -5px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  pointer-events: none; /* Ensures text doesn't block hover effects */
+}
+
+.right-section:hover .hover-text3 {
+  opacity: 1; /* Make text visible on hover */
+}
+
+.server-settings {
+  grid-column: 2 / 3; /* Center column */
+  grid-row: 5 / 6; /* Bottom row */
+  padding: 16px;
+  position: relative;
+  margin-left: -10px;
+}
+
+.server__current-stats-w {
+  margin-top: 300px;
+  margin-left: 65px;
+  font-family: Rajdhani,sans-serif;
+}
+
+.server__current-stats {
+  margin-right: 80px;
+}
+
+.Bottom-1 {
+  position: relative;
+  margin-top: 200px;
+}
+
